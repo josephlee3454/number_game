@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">    
+
+
+</head>
+<body class="body">
+    <header>
+        <h1>
+            Welcome to the great number game!
+        </h1>
+    </header>
+    <div>
+        <header>
+            I am thinking of a number between 1 - 100 what is it 
+        </header>
+        <form action="/win/" method='post'>
+            {% csrf_token %}
+            <input type='text' name='number'><br>
+            <button href = "/win/" type='submit'>submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

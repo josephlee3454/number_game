@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">    
+
+</head>
+<body> 
+    <header>
+        <h1>
+        Welcome to the Great Number Game!
+        </h1><br>
+        <h3>
+            I am thinking of a number between 1 and 100 <br>
+            Take a guess
+        </h3>
+    </header>
+    {% if name_from_form == 79 %}
+        <div class ='first-div'>
+        <header>
+            <h1>
+            {{ name_from_form }}
+            </h1>
+        </header>
+        <p>
+            this is the number congrats !!!
+        </p>
+        </div>
+        
+       
+    {% else %}
+        <div class = 'second-div'>
+            <h1>
+                its not the number   
+            </h1>
+        </div>
+         <form action="/win/" method='post'>
+            {% csrf_token %}
+            <input type='text' name='number'><br>
+            <button href = "/win/" type='submit'>submit</button>
+        </form>
+
+    {% endif  %}
+</body>
+</html>
